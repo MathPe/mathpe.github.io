@@ -9,5 +9,7 @@ First, what is Machine Learning (ML) ? From Arthur Samuel, it can be defined as 
 
 More posts will follow presenting more details about ML :)
 
+-----------------
+
 [^1]: MACHINE LEARNING For Absolute Beginners, Olivier Theobald, 2017.
 [^2]: Arthur Samuel, "Some Studies in Machine Learning Using the Game of Checkers", IBM Journal of Research and Development, Vol. 3, Issue, 3, 1959.
