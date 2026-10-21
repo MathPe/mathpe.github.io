@@ -1,0 +1,23 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+<!doctype html>
+<html lang="fr">
+  <head><BaseHead title={`À propos | ${SITE_TITLE}`} description={SITE_DESCRIPTION} /></head>
+  <body>
+    <Header />
+    <main>
+      <span class="eyebrow">Le projet</span>
+      <h1>À propos</h1>
+      <div class="prose">
+        <p><strong>Sciences en clair</strong> est un blog de vulgarisation consacré principalement à la physique et à la chimie.</p>
+        <p>Son objectif : rendre les concepts scientifiques plus accessibles, sans renoncer à la précision. Les articles présenteront des explications, des exemples, des équations lorsque c’est utile, et des références pour aller plus loin.</p>
+        <p>Les contenus de ce site sont des articles de vulgarisation, pas des publications scientifiques évaluées par les pairs. Les sources et les éventuelles corrections seront indiquées dans les articles.</p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>

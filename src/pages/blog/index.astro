@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { SITE_DESCRIPTION } from '../../consts';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+<!doctype html>
+<html lang="fr">
+  <head><BaseHead title={`Articles | Sciences en clair`} description={SITE_DESCRIPTION} /></head>
+  <body>
+    <Header />
+    <main>
+      <span class="eyebrow">À lire et à explorer</span>
+      <h1>Les articles</h1>
+      <p class="post-description">Des explications accessibles sur la physique, la chimie et les idées scientifiques.</p>
+      {posts.length > 0 ? (
+        <ul class="article-list">
+          {posts.map((post) => (
+            <li class="article-card">
+              <a href={`/blog/${post.id}/`}>
+                <div class="article-meta"><span class="category">{post.data.category}</span><span><FormattedDate date={post.data.pubDate} /></span></div>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty-state">Aucun article publié pour l’instant. Ajoute un fichier <code>.md</code> dans <code>src/content/blog/</code> pour commencer.</p>
+      )}
+    </main>
+    <Footer />
+  </body>
+</html>
