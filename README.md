@@ -20,32 +20,13 @@ npm run preview
 
 ## Écrire un article
 
-Crée `src/content/blog/mon-article.md` avec ce frontmatter :
+Copie `templates/article.md` vers `src/content/blog/mon-article.md`. Remplace le titre, le résumé et la date dans le frontmatter, choisis `Physique`, `Chimie` ou `Sciences`, puis rédige après le séparateur `---`. Laisse le frontmatter en place : `title`, `description` et `pubDate` sont requis pour générer la page.
 
-```md
----
-title: "Mon titre"
-description: "En quelques mots, ce que l’article explique."
-pubDate: 2026-10-21
-category: "Physique"
----
+La catégorie accepte `Physique`, `Chimie` ou `Sciences`. `updatedDate` est facultatif. Pour une image de couverture, ajoute-la sous `src/assets/` et référence-la via le frontmatter `heroImage` selon le format du schéma Astro. Les images insérées dans le texte peuvent être placées dans `public/images/` et liées par `/images/nom-image.jpg`.
 
-Le texte de l’article commence ici.
+Les équations s’écrivent en LaTeX, par exemple `$E = mc^2$` ou `$$F = ma$$`. Pour une formule chimique, utilise mhchem, par exemple `\ce{2H2 + O2 -> 2H2O}` à l’intérieur des délimiteurs mathématiques.
 
-Une équation dans le texte : $E = mc^2$.
-
-Une équation isolée :
-
-$$
-F = m a
-$$
-
-Une réaction chimique avec mhchem : $\ce{2H2 + O2 -> 2H2O}$.
-```
-
-`category` accepte `Physique`, `Chimie` ou `Sciences`. `updatedDate` est facultatif. Pour une image de couverture, ajoute-la sous `src/assets/` et référence-la via le frontmatter `heroImage` selon le format du schéma Astro. Les images insérées dans le texte peuvent être placées dans `public/images/` et liées par `/images/nom-image.jpg`.
-
-Ajoute des références directement sous forme de liens dans le texte ou en fin d’article. Pour afficher des notes, crée une section « Références ».
+Ajoute des références directement sous forme de liens dans le texte ou sous le titre « Références » en fin d’article.
 
 ## Publication sur GitHub Pages
 
@@ -62,6 +43,7 @@ Le workflow est défini dans `.github/workflows/deploy.yml`. Pour utiliser un do
 ## Structure
 
 - `src/content/blog/` : articles Markdown/MDX
+- `templates/article.md` : modèle réutilisable d’article
 - `src/pages/` : pages d’accueil, liste, à propos et articles
 - `src/layouts/` : mise en page des articles
 - `public/` : fichiers statiques et images à chemin stable
